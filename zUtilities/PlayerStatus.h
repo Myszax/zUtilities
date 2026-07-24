@@ -27,22 +27,23 @@ namespace GOTHIC_ENGINE {
       for ( int i = 0; i < MulStrings.GetNum(); i++ )
         TimeMultipliers.Insert( MulStrings[i].Shrink().ToReal32() );
 
-      SaveReminder = zoptions->ReadInt(PLUGIN_NAME, "SaveReminder", 5);
+      SaveReminder = zoptions->ReadInt( PLUGIN_NAME, "SaveReminder", 5 );
 
-      ShowTargetProtectionNoFight = zoptions->ReadInt(PLUGIN_NAME, "ShowTargetProtectionNoFight", TargetProtectionMode::Disabled);
-      ShowTargetProtectionInFight = zoptions->ReadInt(PLUGIN_NAME, "ShowTargetProtectionInFight", TargetProtectionMode::CurrentWeapon);
-      TargetProtectionIconStyle = zoptions->ReadInt(PLUGIN_NAME, "TargetProtectionIconStyle", 0);
-      TargetProtectionIconPosition = zoptions->ReadInt(PLUGIN_NAME, "TargetProtectionIconPosition", 0);
-      HideTargetProtectionZeroValues = zoptions->ReadBool(PLUGIN_NAME, "HideTargetProtectionZeroValues", false);
-      HideTargetProtectionFallDamage = zoptions->ReadBool(PLUGIN_NAME, "HideTargetProtectionFallDamage", false);
-      HideTargetProtectionFlyDamage = zoptions->ReadBool(PLUGIN_NAME, "HideTargetProtectionFlyDamage", false);
-      HideTargetProtectionFireDamage = zoptions->ReadBool(PLUGIN_NAME, "HideTargetProtectionFireDamage", false);
+      ShowTargetProtectionNoFight = zoptions->ReadInt( PLUGIN_NAME, "ShowTargetProtectionNoFight", TargetProtectionMode::Disabled );
+      ShowTargetProtectionInFight = zoptions->ReadInt( PLUGIN_NAME, "ShowTargetProtectionInFight", TargetProtectionMode::CurrentWeapon );
+      ShowTargetProtectionInFight = zoptions->ReadInt( PLUGIN_NAME, "ShowTargetProtectionInFight", TargetProtectionMode::CurrentWeapon );
+      TargetProtectionIconStyle = zoptions->ReadInt( PLUGIN_NAME, "TargetProtectionIconStyle", 0 );
+      TargetProtectionIconPosition = zoptions->ReadInt( PLUGIN_NAME, "TargetProtectionIconPosition", 0 );
+      HideTargetProtectionZeroValues = zoptions->ReadBool( PLUGIN_NAME, "HideTargetProtectionZeroValues", false );
+      HideTargetProtectionFallDamage = zoptions->ReadBool( PLUGIN_NAME, "HideTargetProtectionFallDamage", false );
+      HideTargetProtectionFlyDamage = zoptions->ReadBool( PLUGIN_NAME, "HideTargetProtectionFlyDamage", false );
+      HideTargetProtectionFireDamage = zoptions->ReadBool( PLUGIN_NAME, "HideTargetProtectionFireDamage", false );
 
-	  // when value form ini is 0, do not override default to avoid showing nothing for distance weapons
-	  if (DistanceWeaponDamageTypeFromIni = zoptions->ReadInt(PLUGIN_NAME, "DistanceWeaponDamageType", 0)) {
-          for (const auto& entry : DAMAGE_MAP) {
-              DistanceWeaponDamageType[entry.index] = (DistanceWeaponDamageTypeFromIni & entry.type) != 0;
-          }
+      // when value form ini is 0, do not override default to avoid showing nothing for distance weapons
+      if ( DistanceWeaponDamageTypeFromIni = zoptions->ReadInt( PLUGIN_NAME, "DistanceWeaponDamageType", 0 ) ) {
+        for ( const auto& entry : DAMAGE_MAP ) {
+          DistanceWeaponDamageType[entry.index] = ( DistanceWeaponDamageTypeFromIni & entry.type ) != 0;
+        }
       }
     }
   }
