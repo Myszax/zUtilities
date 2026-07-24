@@ -94,15 +94,15 @@ namespace GOTHIC_ENGINE {
 		return true;
 	}
 
-	void FocusStatusBar::Clear() {
-		__super::Clear();
+  void FocusStatusBar::Clear() {
+    __super::Clear();
 
-		if (!bar) {
-			return;
-		}
+    if (!bar) {
+      return;
+    }
 
-		del(protView);
-	}
+    del(protView);
+  }
 
 	void FocusStatusBar::Loop() {
 		if (protView) {
@@ -421,29 +421,29 @@ namespace GOTHIC_ENGINE {
 		return data;
 	}
 
-	void FocusStatusBar::MoveFocusBar(int x, int y, oCNpc* npc) {
-		if (!Options::ShowEnemyBarAboveHim)
-			return;
+  void FocusStatusBar::MoveFocusBar(int x, int y, oCNpc* npc) {
+    if (!Options::ShowEnemyBarAboveHim)
+      return;
 
-		if (!IsBarActive())
-			return;
+    if (!IsBarActive())
+      return;
 
-		zCCamera* cam = ogame->GetCamera();
-		zVEC3 viewPos = cam->GetTransform(zTCamTrafoType::zCAM_TRAFO_VIEW) * npc->GetPositionWorld();
-		int posx, posy;
-		cam->Project(&viewPos, posx, posy);
-		if (viewPos[VZ] <= cam->nearClipZ)
-			return;
+    zCCamera* cam = ogame->GetCamera();
+    zVEC3 viewPos = cam->GetTransform(zTCamTrafoType::zCAM_TRAFO_VIEW) * npc->GetPositionWorld();
+    int posx, posy;
+    cam->Project(&viewPos, posx, posy);
+    if (viewPos[VZ] <= cam->nearClipZ)
+      return;
 
-		x = x + screen->FontSize(npc->name[0]) / 2 - bar->vsizex / 2;
-		if (x + bar->vsizex > 8192)
-			x = 8192 - bar->vsizex;
+    x = x + screen->FontSize(npc->name[0]) / 2 - bar->vsizex / 2;
+    if (x + bar->vsizex > 8192)
+      x = 8192 - bar->vsizex;
 
-		x = max(0, x);
-		y = max(0, y - screen->FontY() * 1.75);
+    x = max(0, x);
+    y = max(0, y - screen->FontY() * 1.75);
 
-		bar->SetPos(x, y);
-	}
+    bar->SetPos(x, y);
+  }
 
 	void FocusStatusBar::PrintValueOutside(zSTRING& str)
 	{

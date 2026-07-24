@@ -15,3 +15,4 @@ int GetSpellDamageIndex();
 int GetActiveDamageIndex();
 void CopyTransformSpellInvariantValuesTo_Union( oCNpc* );
 oCItem* GetHandMunition();
+bool IsInventoryEmpty(bool, bool);
